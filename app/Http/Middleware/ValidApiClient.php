@@ -12,8 +12,8 @@ class ValidApiClient
 
     public function handle(Request $request, Closure $next): Response
     {
-        $client_id = $request->header('client_id');
-        $client_secret = $request->header('client_secret');
+        $client_id = $request->header('client-id');
+        $client_secret = $request->header('client-secret');
         if (!$client_id) {
             return ApiResponse::sendError(__('response.client_empty'));
         }

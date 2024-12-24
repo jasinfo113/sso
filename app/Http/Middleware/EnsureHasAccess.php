@@ -13,9 +13,9 @@ class EnsureHasAccess
 
     public function handle(Request $request, Closure $next): Response
     {
-        if ($request->is('api/v1/auth/*')) {
-            $client_id = $request->header('client_id');
-            $client_secret = $request->header('client_secret');
+        if ($request->is('api/v1/auth/*') || $request->is('api/v1/master/*')) {
+            $client_id = $request->header('client-id');
+            $client_secret = $request->header('client-secret');
             if (!$client_id) {
                 return ApiResponse::sendError(__('response.client_empty'));
             }
@@ -31,8 +31,8 @@ class EnsureHasAccess
                 return ApiResponse::sendError(__('response.key_invalid'));
             }
         } else if ($request->is('api/*')) {
-            $client_id = $request->header('client_id');
-            $client_secret = $request->header('client_secret');
+            $client_id = $request->header('client-id');
+            $client_secret = $request->header('client-secret');
             if (!$client_id) {
                 return ApiResponse::sendError(__('response.client_empty'));
             }
