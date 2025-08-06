@@ -43,4 +43,8 @@ yarn-error.log
 /.fleet
 /.idea
 /.vscode
+<<<<<<< HEAD
 >>>>>>> bde8792 (Add to repository)
+=======
+.DS_Store
+>>>>>>> 04e9d3b (update gitignore)
